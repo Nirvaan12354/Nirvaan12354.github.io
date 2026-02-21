@@ -1,23 +1,17 @@
 html {
     scroll-behavior: smooth;
 }
+
 body {
     background-color: #111;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    padding-top: 100px;
+    margin: 0;
+    padding-top: 80px;
 }
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 20px;
-    color: #bbb;
-}
+/* Navbar */
 nav {
     position: fixed;
     top: 0;
@@ -35,8 +29,20 @@ nav a {
 
 nav a:hover {
     color: #00ffcc;
-
 }
+
+/* Main Heading */
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: #bbb;
+}
+
+/* Sections */
 section {
     padding: 80px 20px;
 }
@@ -50,4 +56,3 @@ section p {
     max-width: 600px;
     margin: 0 auto;
 }
-
