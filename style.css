@@ -108,3 +108,13 @@ section p {
         transform: translateY(0);
     }
 }
+/* Contact Email Styling */
+#contact a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
