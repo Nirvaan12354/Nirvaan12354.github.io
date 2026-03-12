@@ -1,18 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Science Quiz</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.quiz-box{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+}
+
+button{
+display:block;
+width:100%;
+margin:10px 0;
+padding:10px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#38bdf8;
+color:black;
+}
+
+</style>
+
 </head>
 
 <body>
 
+<div class="quiz-box">
+
 <h1>Grade 8 Science Quiz</h1>
 
-<p>Question 1: What is the powerhouse of the cell?</p>
+<h2 id="question">Question appears here</h2>
 
-<button onclick="alert('Correct!')">Mitochondria</button>
-<button onclick="alert('Try again')">Nucleus</button>
-<button onclick="alert('Try again')">Ribosome</button>
+<div id="answers"></div>
+
+<p id="score"></p>
+
+</div>
+
+<script>
+
+const quiz = [
+{
+question: "What is the powerhouse of the cell?",
+answers: ["Mitochondria","Nucleus","Ribosome","Cytoplasm"],
+correct: 0
+},
+{
+question: "What gas do plants absorb?",
+answers: ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"],
+correct: 1
+},
+{
+question: "What force pulls objects toward Earth?",
+answers: ["Magnetism","Gravity","Friction","Energy"],
+correct: 1
+}
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion(){
+
+let q = quiz[currentQuestion];
+
+document.getElementById("question").textContent = q.question;
+
+let answersHTML = "";
+
+for(let i=0;i<q.answers.length;i++){
+
+answersHTML += `<button onclick="checkAnswer(${i})">${q.answers[i]}</button>`;
+
+}
+
+document.getElementById("answers").innerHTML = answersHTML;
+
+}
+
+function checkAnswer(answerIndex){
+
+if(answerIndex === quiz[currentQuestion].correct){
+score++;
+}
+
+currentQuestion++;
+
+if(currentQuestion < quiz.length){
+
+loadQuestion();
+
+}
+else{
+
+document.querySelector(".quiz-box").innerHTML =
+`<h1>Quiz Finished</h1>
+<p>Your score: ${score} / ${quiz.length}</p>`;
+
+}
+
+}
+
+loadQuestion();
+
+</script>
 
 </body>
 </html>
